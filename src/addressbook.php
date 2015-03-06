@@ -67,14 +67,13 @@
 //Static functions
 
 	static function getAll()
-{
-    return $_SESSION['list_of_contacts'];
-}
-
-	static function deleteAll();
 	{
+    return $_SESSION['list_of_contacts'];
+	}
 
-		$_SESSION['list_of_contacts'] = array();
+	static function deleteAll()
+	{
+	return	$_SESSION['list_of_contacts'] = array();
 
 	}
 ?>

@@ -50,59 +50,9 @@
     	}
 
     	$output = $output . "</ul>";
-    }
+    
 
-    //This part displays a form for users to input their contact info
-
-    	return "
-    	<!DOCTYPE html>
-        <html>
-        <head>
-            <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-            <title>Add new Contact</title>
-        </head>
-        <body>
-            <div class='container'>
-                <h1>Add new Contact</h1>
-                <p>Enter your contact info below</p>
-                <form action='/'>
-                    <div class='form-group'>
-                      <label for='name'>Enter your name</label>
-                      <input id='name' name='name' class='form-control' type='text'>
-                    </div>
-                    <div class='form-group'>
-                      <label for='phone'>Enter your phone number:</label>
-                      <input id='phone' name='phone' class='form-control' type='number'>
-                    </div>
-                    <div class='form-group'>
-                      <label for='address'>Enter your address</label>
-                      <input id='address' name='address' class='form-control' type='text'>
-                    </div>
-                    <button type='submit' class='btn-success'>Create</button>
-                </form>
-            </div>
-        </body>
-        </html>
-        ";
-
-    //This section stores user inputs in the $output variable and returns the values in that variable
-
-     $output = $output . "
-            <form action='/create_contact' method='post'>
-                <label for='name'>Contact Name</label>
-                <input id='name' name='name' type='text'>
-
-                <label for='phone'>Contact Phone</label>
-                <input id='phone' name='phone' type='number'>
-
-                <label for='address'>Contact Address</label>
-                <input id='address' name='address' type='text'>
-
-                <button type='submit'>Add task</button>
-            </form>
-        ";
-
-        return $app['twig']->render('contacts.twig', array );
+        return $app['twig']->render('contacts.twig', array('list_of_contacts' => Contact::getAll()));
 
     });
 
@@ -116,30 +66,7 @@
         	$output = $output . "<p>" . $contact->getName() . "</p>";
         	$output = $output . "<p>" . $contact->getPhone_Number() . "</p>";
         	$output = $output . "<p>" . $contact->getAddress() . "</p>";
-        }
-
-         $output = $output . "</ul>
-        	<form action='/create_contact' method='post'>
-            <label for='name'>Contact Name</label>
-            <input id='name' name='name' type='text'>
-
-            <label for='phone'>Contact Phone</label>
-            <input id='phone' name='phone' type='number'>
-
-            <label for='address'>Contact Address</label>
-            <input id='address' name='address' type='text'>
-
-            <button type='submit'>Add task</button>
-        </form>
-    ";
-
-    //Deletes all contacts
-
-    $output .= "
-    <form action='/delete_contacts' method='post'>
-        <button type='submit'>delete</button>
-    </form>
-";
+        
 
         return $output;
     });
