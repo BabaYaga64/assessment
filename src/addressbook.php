@@ -9,22 +9,15 @@
 		private $address;
 	}
 
-//Constructors
+//Constructor
 
-	function __construct($name)
+	function __construct($name, $phone_number, $address)
 	{
 		$this->name = $name;
-	}
-
-	function __construct($phone_number)
-	{
 		$this->phone_number = $phone_number;
-	}
-
-	function __construct($address)
-	{
 		$this->address = $address;
 	}
+
 
 //Setters
 
@@ -65,18 +58,4 @@
 		return $this->address;
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-	}
-
 ?>
