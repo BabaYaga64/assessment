@@ -19,7 +19,7 @@
 	}
 
 
-
+//Getters n' setters
 
 	function setName($new_name)
 	{
@@ -57,8 +57,24 @@
 
 	}
 
+//Save function
+
 	function save()
 	{
-		array_push($_SESSION['$list_of_contacts'], $this);
+		array_push($_SESSION['list_of_contacts'], $this);
+	}
+
+//Static functions
+
+	static function getAll()
+{
+    return $_SESSION['list_of_contacts'];
+}
+
+	static function deleteAll();
+	{
+
+		$_SESSION['list_of_contacts'] = array();
+
 	}
 ?>
