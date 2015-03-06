@@ -19,43 +19,46 @@
 	}
 
 
-//Setters
 
-	function setName($name)
+
+	function setName($new_name)
 	{
 
-		$this->name = (string) $name;	
+		$this->name = $new_name;	
 	}
 
-	function setPhone_Number($phone_number)
-	{
-
-		$this->phone_number = (string) $phone_number;
-	}
-
-	function setAddress($address)
-	{
-		$this->address = (string) $address;
-
-	}
-
-//Getters
-
-	function getName($name)
+	function getName()
 	{
 
 		return $this->name;
 	}
 
-	function getPhone_Number($phone_number)
+	function setPhone_Number($new_phone_number)
+	{
+
+		$this->phone_number = $new_phone_number;
+	}
+
+	function getPhone_Number()
 	{
 
 		return $this->phone_number;
 	}
 
-	function getAddress($address)
+	function setAddress($new_address)
+	{
+		$this->address = $new_address;
+
+	}
+
+	function getAddress()
 	{
 		return $this->address;
 
+	}
+
+	function save()
+	{
+		array_push($_SESSION['$list_of_contacts'], $this);
 	}
 ?>
