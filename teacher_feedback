@@ -1,0 +1,43 @@
+// 	Feedback
+
+// First off, your class is beautiful! Love the comments. Such a tiny thing, but fix the spacing and indentation on your two static methods and then it will be perfect. X
+
+// Next, in your root path, it looks like you still have a lot of HTML that is not needed. You don't need to include contact objects by hand. 
+
+i.e., 	$name1 = new Contact("Virginia Woolf");
+        $phone_number1 = new Contact("503-777-8877");
+        $address1 = new Contact("8797 NW 26th Ave, Portland OR 97392");j    
+
+        $name2 = new Contact("Oscar Wilde");
+        $phone_number2 = new Contact("971-273-9874");
+        $address2 = new Contact("31231 Rockwood Drive, Lake Oswego, OR 97207");
+
+        $name3 = new Contact("Margaret Atwood");
+        $phone_number3 = new Contact("541-887-2334");
+        $address3 = new Contact("997 Elmwood Drive, Corvallis, OR 97233");
+
+
+You only need to display the ones created by submitting your "create_contact" form. Also, when you are instantiating Contact objects, you are creating a new one for each argument that you should be passing into the constructor. So instead of:
+
+//     $name2 = new Contact("Oscar Wilde");
+//     $phone_number2 = new Contact("971-273-9874");
+//     $address2 = new Contact("31231 Rockwood Drive, Lake Oswego, OR 97207");
+
+// You would want:
+
+// $contact2 = new Contact("Oscar Wilde", "971-273-9874", "31231 Rockwood Drive, Lake Oswego, OR 97207");
+
+// But again, you don't need any of that. Come talk to me if you are still shaky on the concept above. Your code is creating 3 objects, when you really want one.
+
+// Next, I would say the biggest thing to finish this project is to add twig files for the rest of your routes. The template you're using for your homepage looks good. Just fix the indentation at the beginning where you're using that
+
+//     with an if statement and a foreach loop.
+
+//     My last piece of criticism is that, as you can see now that you are using PHPUnit, it is a good idea to name the files holding your class declaration with the same name as the class. "addressbook.php" is pretty general and sounds like more of a project name. You correctly named your class "Contact", so that file should be called "Contact.php".
+
+//     And that syntax error? line 22 in app.php as well as the if statement in line 40 app.php - it needs a closing curly bracket. Along similar lines, your if statement in app.php line 12 also needs curly brackets. So careful of matching your parentheses! That should get you going, good luck! And you can do it!!!!! You're going in the right direction. Just spend a little more time finishing this outside of class, and keep using todo list as reference.
+
+//     As you work, don't forget to keep your commit messages detailed, and in present tense.
+
+// Link to Github repository: https://github.com/BabaYaga64/assessment.git
+?>
