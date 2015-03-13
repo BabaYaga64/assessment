@@ -9,39 +9,56 @@
     'twig.path' => __DIR__.'/../views'
 	));
 
+    //Store the objects in cookies in the user's browser
     session_start();
     if (empty($_SESSION['$list_of_contacts']))
     	$_SESSION['$list_of_contacts'] = array();
 
-
-    //This route gets displays home page 
+ 
 
     $app->get("/", function() use ($app) {
+    
+        $output = "";
 
-        return $app['twig']->render('contacts.twig', array('list_of_contacts' => Contact::getAll()));
+        $list_of_contacts = Contact::getAll();
 
-    });
+            if(!empty($list_of_contacts)) {
+                $output = $output . "
+                <h1>List of Contacts</h1>
+                <p>Here are your contacts:</p>
+                <ul>";
 
-    //This route gets form input at create_contact
+                foreach ($list_of_contacts as $contact) {
+                    $output .= "<p>" . $contact->getName() . "</p>";
+                    $output .= "<p>" . $contact->getPhone_Number() . "</p>";
+                    $output .= "<p>" . $contact->getAddress() . "</p>";
+                }
 
-    $app->get("/create_contact", function() {
+                $output .= "</ul>";
 
-    	//When form is submitted, users should be directed to this page
+            }
 
-    	$output = "";
+            $output .= "
+                <form action='/contacts' method='post'>
+                    <label for='name'>Name</label>
+                    <input id='name' name='name' type='text'>
 
-    	foreach (Contact::getAll() as $contact) {
-        	$output = $output . "<p>" . $contact->getName() . "</p>";
-        	$output = $output . "<p>" . $contact->getPhone_Number() . "</p>";
-        	$output = $output . "<p>" . $contact->getAddress() . "</p>";
-        
+                    <button type='submit'>Add task</button>
+                </form>
+        ";
 
-        return $output;
+            $output .= "
+                <form action='/delete_contacts' method='post'>
+                    <button type='submit'>delete</button>
+                </form>
+";
+
+        return $app['twig']->render('contacts.twig', array('contacts' => Contact::getAll()));
     });
 
     //This route displays contact via the post method
 
-    $app->post("/create_contact", function() {
+    $app->post("/view_contacts", function() {
 
     	$contact = new Contact($_POST['name']);
     	$contact->save();
@@ -73,4 +90,5 @@
 
     return $app;
 ?>
+
 

@@ -61,19 +61,21 @@
 
 	function save()
 	{
+
 		array_push($_SESSION['list_of_contacts'], $this);
 	}
 
 //Static functions
 
 	static function getAll()
-	{
-    return $_SESSION['list_of_contacts'];
-	}
+    {
+        return $_SESSION['list_of_contacts'];
+    }
 
 	static function deleteAll()
 	{
-	return	$_SESSION['list_of_contacts'] = array();
+	
+		return	$_SESSION['list_of_contacts'] = array();
 
 	}
 ?>
