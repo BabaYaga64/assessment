@@ -33,7 +33,7 @@ You only need to display the ones created by submitting your "create_contact" fo
 
 //     with an if statement and a foreach loop.
 
-//     My last piece of criticism is that, as you can see now that you are using PHPUnit, it is a good idea to name the files holding your class declaration with the same name as the class. "addressbook.php" is pretty general and sounds like more of a project name. You correctly named your class "Contact", so that file should be called "Contact.php".
+//     My last piece of criticism is that, as you can see now that you are using PHPUnit, it is a good idea to name the files holding your class declaration with the same name as the class. "addressbook.php" is pretty general and sounds like more of a project name. You correctly named your class "Contact", so that file should be called "Contact.php". X
 
 //     And that syntax error? line 22 in app.php as well as the if statement in line 40 app.php - it needs a closing curly bracket. Along similar lines, your if statement in app.php line 12 also needs curly brackets. So careful of matching your parentheses! That should get you going, good luck! And you can do it!!!!! You're going in the right direction. Just spend a little more time finishing this outside of class, and keep using todo list as reference.
 
