@@ -4,23 +4,24 @@
 </head>
 <body>
     <h1>Contact List</h1>
+
     {% if contacts is not empty %}
-    <p>Here are your contacts</p>
-    <ul>
-    {% for contact in contacts %}
-        <li>{{ contact.getName }}</li>
-        <li>{{ contact.getPhone_Number }}</li>
-        <li>{{ contact.getAddress }}</li>
-    {% endfor %}
-</ul>
+        <p>Here are your contacts:</p>
+        <ul>
+        {% for contact in contacts %}
+            <li>{{ contact.getName }}</li>
+            <li>{{ contact.getPhone_Number }}</li>
+            <li>{{ contact.getAddress }}</li>
+        {% endfor %}
+            </ul>
     {% endif %}
 
-    <form action='/create_contact' method='post'>
+    <form action='/view_contacts' method='post'>
             <label for='name'>Contact Name</label>
             <input id='name' name='name' type='text'>
 
-            <label for='phone'>Contact Phone</label>
-            <input id='phone' name='phone' type='number'>
+            <label for='phone_number'>Contact Phone</label>
+            <input id='phone_number' name='phone_number' type='number'>
 
             <label for='address'>Contact Address</label>
             <input id='address' name='address' type='text'>
