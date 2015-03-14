@@ -29,9 +29,7 @@
 
     $app->post("/view_contacts", function() use ($app) {
 
-    	$contact = new Contact($_POST['name']);
-        $contact = new Contact($_POST['phone_number']);
-        $contact = new Contact($_POST['address']);
+    	$contact = new Contact($_POST['name'], $_POST['phone_number'], $_POST['address']);
     	$contact->save();
 
     	return $app['twig']->render('create_contact.twig', array('newcontact' => $contact));
@@ -43,7 +41,7 @@
 
     $app->post("/delete_contacts", function() use ($app) {
 
-    	Task::deleteAll();
+    	Contact::deleteAll();
 
     	return $app['twig']->render('delete_contacts.twig');
 
